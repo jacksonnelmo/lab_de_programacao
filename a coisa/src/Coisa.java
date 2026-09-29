@@ -37,7 +37,7 @@ public class Coisa {
         System.out.println(tempoP2.toString());
     }
     private static void controlarDisciplina() {
-        Disciplina prog2 = new Disciplina("PROGRAMACAO 2");
+        controlarDisciplina prog2 = new controlarDisciplina("PROGRAMACAO 2");
         prog2.cadastraHoras(4);
         prog2.cadastraNota(1, 5.0);
         prog2.cadastraNota(2, 6.0);
@@ -68,9 +68,4 @@ public class Coisa {
         System.out.println(meusResumos.temResumo("Classes"));
         System.out.println(meusResumos.temResumo("Objetos"));
     }
-}
-
-Exibindo Coisa.java…
-
-void main() {
 }
