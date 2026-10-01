@@ -1,6 +1,11 @@
 public class RegistroResumos {
-    public RegistroResumos(int numeroDeResumos) {
+    private String tema;
+    private String conteudo;
+    private int numeroDeResumos;
+    private String[] resumos;
 
+    public RegistroResumos(int numeroDeResumos) {
+        this.numeroDeResumos = numeroDeResumos;
     }
 
     public void adiciona(String tema, String conteudo) {
@@ -20,6 +25,6 @@ public class RegistroResumos {
         return 0;
     }
 
-    public boolean temResumo(String tama) {
+    public boolean temResumo(String tema) {
 
     }}
