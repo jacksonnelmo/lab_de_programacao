@@ -1,30 +1,46 @@
 public class RegistroResumos {
-    private String tema;
-    private String conteudo;
-    private int numeroDeResumos;
-    private String[] resumos;
+    private Resumo[] resumos;
+    private int cont;
 
-    public RegistroResumos(int numeroDeResumos) {
-        this.numeroDeResumos = numeroDeResumos;
+    public RegistroResumos(int quantidade) {
+        resumos = new Resumo[quantidade];
     }
 
-    public void adiciona(String tema, String conteudo) {
-
+    public void adiciona(String tema, String resumo) {
+        resumos[cont] = new Resumo(tema, resumo);
+        cont++;
     }
 
     public String[] pegaResumos() {
-
+        String[] resultado = new String[cont];
+        for (int i = 0; i < cont; i++) {
+            resultado[i] = resumos[i].toString();
+        }
+        return resultado;
     }
 
     public String imprimeResumos() {
+        String concatenacao = "- " + cont + " resumo(s) cadastrado(s)\n";
+        concatenacao += "- ";
 
+        for (int i = 0; i < cont; i++) {
+            if (i > 0) {
+                concatenacao += " | ";
+            }
+            concatenacao += resumos[i].getTema();
+        }
+        return concatenacao;
     }
 
     public int conta() {
-
-        return 0;
+        return cont;
     }
 
     public boolean temResumo(String tema) {
-
-    }}
+        for (int i = 0; i < cont; i++) {
+            if (resumos[i].getTema().equals(tema)) return true;
+            return false;
+        }
+        return false;
+    }
+}

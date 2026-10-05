@@ -3,12 +3,13 @@ import java.util.Arrays;
 public class controlarDisciplina {
     private String nomeDisciplina;
     private int horasDeEstudo;
-    private double[] arrayNotas = new double[4];
+    private double[] arrayNotas;
     private double media;
     private int quantidadeDeNotas;
 
     public controlarDisciplina(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
+        arrayNotas = new double[4];
     }
 
     public void cadastraHoras(int horasDeEstudo) {
@@ -20,16 +21,23 @@ public class controlarDisciplina {
     }
 
     public boolean aprovado() {
+        media = 0;
         for (double nota : arrayNotas) {
             media += nota;
         }
         media = media / 4;
 
-        if media >= 7 return true;
+        if (media >= 7.0) return true;
         else return false;
     }
 
+    @Override
     public String toString() {
-        return nomeDisciplina + quantidadeDeNotas + media + Arrays.toString(arrayNotas);
+        media = 0;
+        for (double nota : arrayNotas) {
+            media += nota;
+        }
+        media = media / 4;
+        return nomeDisciplina + " " + horasDeEstudo + " " + media + " " + Arrays.toString(arrayNotas);
     }
 }
