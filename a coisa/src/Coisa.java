@@ -14,7 +14,7 @@ public class Coisa {
     }
 
     /**
-     * cadastra e a consulta das informações relacionadas ao descanso.
+     * Cadastra e a consulta das informações relacionadas ao descanso.
      */
     public static void registrarDescanso() {
         Descanso descanso = new Descanso();
@@ -31,7 +31,7 @@ public class Coisa {
     }
 
     /**
-     * registro de tempo online de disciplinas.
+     * Registro de tempo online de disciplinas.
      */
     private static void registrarTempoOnline() {
         RegistroTempoOnline tempoLP2 = new RegistroTempoOnline("LP2", 30);
@@ -48,7 +48,7 @@ public class Coisa {
     }
 
     /**
-     * cadastro de horas e notas de uma disciplina e verifica a situação do aluno.
+     * Cadastro de horas e notas de uma disciplina e verifica a situação do aluno.
      */
     private static void controlarDisciplina() {
         controlarDisciplina prog2 = new controlarDisciplina("PROGRAMACAO 2");

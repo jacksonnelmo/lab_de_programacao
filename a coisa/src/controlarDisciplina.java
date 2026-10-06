@@ -9,6 +9,7 @@ public class controlarDisciplina {
     private int horasDeEstudo;
     private double[] arrayNotas;
     private double media;
+    /** sem usos*/
     private int quantidadeDeNotas;
 
     /**
@@ -42,7 +43,7 @@ public class controlarDisciplina {
 
     /**
      * Verifica se o estudante foi aprovado na disciplina.
-     *
+     * If ṕode ser simplificado.
      * @return true se o estudante foi aprovado e false se não for aprovado
      */
     public boolean aprovado() {
@@ -52,8 +53,7 @@ public class controlarDisciplina {
         }
         media = media / 4;
 
-        if (media >= 7.0) return true;
-        else return false;
+        return media >= 7.0;
     }
 
     /**
@@ -61,6 +61,7 @@ public class controlarDisciplina {
      *
      * @return representação textual da disciplina
      */
+
     @Override
     public String toString() {
         media = 0;

@@ -40,8 +40,7 @@ public class RegistroTempoOnline {
      * @returntrue se a meta foi atingida e false caso contrário
      */
     public boolean atingiuMetaTempoOnline() {
-        if (tempoInvestidoOnline >= tempoOnlineEsperado) return true;
-        else return false;
+        return tempoInvestidoOnline >= tempoOnlineEsperado;
     }
 
     /**
