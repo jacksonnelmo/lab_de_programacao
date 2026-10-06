@@ -1,5 +1,5 @@
 import java.util.Arrays;
-//falta fazer os javadoc
+//falta fazer os javadocadawd
 public class controlarDisciplina {
     private String nomeDisciplina;
     private int horasDeEstudo;
