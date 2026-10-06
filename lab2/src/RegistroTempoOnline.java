@@ -20,7 +20,7 @@ public class RegistroTempoOnline {
         if (tempoInvestidoOnline >= tempoOnlineEsperado) return true;
         else return false;
     }
-
+    @Override
     public String toString() {
         return nomeDaDisciplina + " " +  tempoInvestidoOnline + "/" + tempoOnlineEsperado;
     }
