@@ -1,5 +1,9 @@
 import java.util.Arrays;
-//falta fazer os javadocadawd
+
+/** * Representa uma disciplina e armazena informações sobre notas,
+ * horas de estudo e situação acadêmica.
+ * @author Jackson Nelmo
+ */
 public class controlarDisciplina {
     private String nomeDisciplina;
     private int horasDeEstudo;
@@ -7,19 +11,40 @@ public class controlarDisciplina {
     private double media;
     private int quantidadeDeNotas;
 
+    /**
+     * Cria uma disciplina com o nome informado.
+     *
+     * @param nomeDisciplina nome da disciplina.
+     */
     public controlarDisciplina(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
         arrayNotas = new double[4];
     }
 
+    /**
+     * Cadastra uma quantidade de horas de estudo para a disciplina.
+     *
+     * @param horasDeEstudo quantidade de horas a ser cadastrada
+     */
     public void cadastraHoras(int horasDeEstudo) {
         this.horasDeEstudo += horasDeEstudo;
     }
 
+    /**
+     * Cadastra uma nota para disciplina.
+     *
+     * @param notas nota obtida na avaliação
+     * @param valorNota valor da nota
+     */
     public void cadastraNota(int notas, double valorNota) {
         arrayNotas[notas - 1] = valorNota;
     }
 
+    /**
+     * Verifica se o estudante foi aprovado na disciplina.
+     *
+     * @return true se o estudante foi aprovado e false se não for aprovado
+     */
     public boolean aprovado() {
         media = 0;
         for (double nota : arrayNotas) {
@@ -31,6 +56,11 @@ public class controlarDisciplina {
         else return false;
     }
 
+    /**
+     * Retorna uma representação textual da disciplina.
+     *
+     * @return representação textual da disciplina
+     */
     @Override
     public String toString() {
         media = 0;
