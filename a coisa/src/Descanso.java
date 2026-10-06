@@ -2,7 +2,7 @@
  * Representa o controle de descanso de um estudante,
  * considerando a quantidade de horas de descanso e
  * a quantidade de semanas informada.
- * @author Jackson Nelmo
+ * @author Jackson Nelmo Bernardino de Sousa - 20260004340
  */
 public class Descanso {
     private int horasDeDescanso;

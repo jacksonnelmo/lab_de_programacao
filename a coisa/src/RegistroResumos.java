@@ -1,7 +1,7 @@
 /**
  * Representa o registro de resumos de estudo de um estudante.
  *
- * @author Jackson Nelmo
+ * @author Jackson Nelmo Bernardino de Sousa - 20260004340
  */
 public class RegistroResumos {
     private Resumo[] resumos;

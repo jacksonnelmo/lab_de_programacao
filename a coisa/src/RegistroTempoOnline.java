@@ -1,7 +1,7 @@
 /**
  * Representa o registro de tempo online dedicado a uma disciplina.
  *
- * @author Jackson Nelmo
+ * @author Jackson Nelmo Bernardino de Sousa - 20260004340
  */
 public class RegistroTempoOnline {
     private String nomeDaDisciplina;
@@ -15,6 +15,7 @@ public class RegistroTempoOnline {
     public RegistroTempoOnline(String nomeDisciplina) {
         this.nomeDaDisciplina = nomeDisciplina;
     }
+
     /**
      * Cria um registro de tempo online para a disciplina informada.
      * @param nomeDisciplina nome da disciplina
@@ -42,6 +43,7 @@ public class RegistroTempoOnline {
         if (tempoInvestidoOnline >= tempoOnlineEsperado) return true;
         else return false;
     }
+
     /**
      * Retorna uma representação textual do registro de tempo online.
      *

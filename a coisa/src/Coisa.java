@@ -1,3 +1,7 @@
+/**
+ * Classe responsável por executar e testar as funcionalidades
+ * das classes do projeto.
+ */
 public class Coisa {
     public static void main(String[] args) {
         registrarDescanso();
@@ -8,6 +12,10 @@ public class Coisa {
         System.out.println("-----");
         registrarResumos();
     }
+
+    /**
+     * cadastra e a consulta das informações relacionadas ao descanso.
+     */
     public static void registrarDescanso() {
         Descanso descanso = new Descanso();
         System.out.println(descanso.getStatusGeral());
@@ -21,6 +29,10 @@ public class Coisa {
         descanso.defineNumeroSemanas(1);
         System.out.println(descanso.getStatusGeral());
     }
+
+    /**
+     * registro de tempo online de disciplinas.
+     */
     private static void registrarTempoOnline() {
         RegistroTempoOnline tempoLP2 = new RegistroTempoOnline("LP2", 30);
         tempoLP2.adicionaTempoOnline(10);
@@ -34,6 +46,10 @@ public class Coisa {
         RegistroTempoOnline tempoP2 = new RegistroTempoOnline("P2");
         System.out.println(tempoP2.toString());
     }
+
+    /**
+     * cadastro de horas e notas de uma disciplina e verifica a situação do aluno.
+     */
     private static void controlarDisciplina() {
         controlarDisciplina prog2 = new controlarDisciplina("PROGRAMACAO 2");
         prog2.cadastraHoras(4);
@@ -45,6 +61,10 @@ public class Coisa {
         System.out.println(prog2.aprovado());
         System.out.println(prog2.toString());
     }
+
+    /**
+     * Testa o cadastro, consulta e busca de resumos de estudo.
+     */
     private static void registrarResumos() {
         RegistroResumos meusResumos = new RegistroResumos(100);  // 100 resumos
 

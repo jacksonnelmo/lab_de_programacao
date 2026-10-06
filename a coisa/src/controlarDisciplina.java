@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /** * Representa uma disciplina e armazena informações sobre notas,
  * horas de estudo e situação acadêmica.
- * @author Jackson Nelmo
+ * @author Jackson Nelmo Bernardino de Sousa - 20260004340
  */
 public class controlarDisciplina {
     private String nomeDisciplina;
@@ -33,7 +33,7 @@ public class controlarDisciplina {
     /**
      * Cadastra uma nota para disciplina.
      *
-     * @param notas nota obtida na avaliação
+     * @param notas notas obtidas nas avaliações
      * @param valorNota valor da nota
      */
     public void cadastraNota(int notas, double valorNota) {

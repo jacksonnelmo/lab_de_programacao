@@ -1,7 +1,7 @@
 /**
  * Representa um resumo de estudo, contendo um tema e seu conteúdo.
  *
- * @author Jackson Nelmo
+ * @author Jackson Nelmo Bernardino de Sousa - 20260004340
  */
 public class Resumo {
     private String tema;
