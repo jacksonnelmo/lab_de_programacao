@@ -4,8 +4,8 @@
  * @author Jackson Nelmo Bernardino de Sousa - 20260004340
  */
 public class Resumo {
-    private String tema;
-    private String conteudo;
+    private final String tema;
+    private final String conteudo;
 
     /**
      * Cria um resumo com o tema e o conteúdo informados.
@@ -36,4 +36,6 @@ public class Resumo {
     public String getTema() {
         return tema;
     }
+
+    public String getConteudo() {return conteudo;}
 }

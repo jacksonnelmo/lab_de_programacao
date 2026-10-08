@@ -1,10 +1,12 @@
+import java.util.Locale;
+
 /**
  * Representa o registro de resumos de estudo de um estudante.
  *
  * @author Jackson Nelmo Bernardino de Sousa - 20260004340
  */
 public class RegistroResumos {
-    private Resumo[] resumos;
+    private final Resumo[] resumos;
     private int cont;
 
     /**
@@ -19,7 +21,7 @@ public class RegistroResumos {
     /**
      * Cadastra um novo resumo de estudo.
      *
-     * @param tema título do resumo
+     * @param tema   título do resumo
      * @param resumo conteúdo do resumo
      */
     public void adiciona(String tema, String resumo) {
@@ -75,9 +77,19 @@ public class RegistroResumos {
      */
     public boolean temResumo(String tema) {
         for (int i = 0; i < cont; i++) {
-            if (resumos[i].getTema().equals(tema)) return true;
-            return false;
+            return resumos[i].getTema().equals(tema);
         }
         return false;
+    }
+
+    public void busca(String chaveDeBusca) {
+        String chaveDeBuscaMinuscula = chaveDeBusca.toLowerCase(Locale.ROOT);
+        String[] listaDeBusca;
+        for (int i = 0; i < cont; i++) {
+            String conteudoMinusculo = resumos[i].getConteudo().toLowerCase(Locale.ROOT);
+            if (chaveDeBuscaMinuscula.equals(conteudoMinusculo)) {
+
+            }
+        }
     }
 }

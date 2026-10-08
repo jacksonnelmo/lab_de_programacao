@@ -11,6 +11,8 @@ public class Coisa {
         controlarDisciplina();
         System.out.println("-----");
         registrarResumos();
+        System.out.println("-----");
+        novasFuncoes();
     }
 
     /**
@@ -85,5 +87,10 @@ public class Coisa {
         System.out.println(meusResumos.imprimeResumos());
         System.out.println(meusResumos.temResumo("Classes"));
         System.out.println(meusResumos.temResumo("Objetos"));
+    }
+    private static void novasFuncoes() {
+        RegistroResumos resumoTeste = new RegistroResumos(3);
+        resumoTeste.busca("FMCC2");
+
     }
 }

@@ -6,13 +6,13 @@ Sobre o projeto
 
 O projeto reúne classes desenvolvidas para praticar conceitos fundamentais de orientação a objetos, como:
 
-Classes e objetos
-Atributos e métodos
-Encapsulamento
-Construtores
-Métodos static
-Sobrescrita de métodos
-toString()
+Classes e objetos,
+Atributos e métodos,
+Encapsulamento,
+Construtores,
+Métodos static,
+Sobrescrita de métodos,
+toString().
 Relacionamento entre classes
 Organização e documentação de código Java
 Classes

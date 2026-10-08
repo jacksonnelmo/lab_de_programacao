@@ -5,12 +5,10 @@ import java.util.Arrays;
  * @author Jackson Nelmo Bernardino de Sousa - 20260004340
  */
 public class controlarDisciplina {
-    private String nomeDisciplina;
+    private final String nomeDisciplina;
     private int horasDeEstudo;
-    private double[] arrayNotas;
+    private final double[] arrayNotas;
     private double media;
-    /** sem usos*/
-    private int quantidadeDeNotas;
 
     /**
      * Cria uma disciplina com o nome informado.
@@ -34,7 +32,7 @@ public class controlarDisciplina {
     /**
      * Cadastra uma nota para disciplina.
      *
-     * @param notas notas obtidas nas avaliações
+     * @param notas     notas obtidas nas avaliações
      * @param valorNota valor da nota
      */
     public void cadastraNota(int notas, double valorNota) {
@@ -44,6 +42,7 @@ public class controlarDisciplina {
     /**
      * Verifica se o estudante foi aprovado na disciplina.
      * If ṕode ser simplificado.
+     *
      * @return true se o estudante foi aprovado e false se não for aprovado
      */
     public boolean aprovado() {
