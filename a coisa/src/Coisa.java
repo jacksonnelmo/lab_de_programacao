@@ -1,7 +1,3 @@
-/**
- * Classe responsável por executar e testar as funcionalidades
- * das classes do projeto.
- */
 public class Coisa {
     public static void main(String[] args) {
         registrarDescanso();
@@ -15,9 +11,6 @@ public class Coisa {
         novasFuncoes();
     }
 
-    /**
-     * Cadastra e a consulta das informações relacionadas ao descanso.
-     */
     public static void registrarDescanso() {
         Descanso descanso = new Descanso();
         System.out.println(descanso.getStatusGeral());
@@ -32,9 +25,6 @@ public class Coisa {
         System.out.println(descanso.getStatusGeral());
     }
 
-    /**
-     * Registro de tempo online de disciplinas.
-     */
     private static void registrarTempoOnline() {
         RegistroTempoOnline tempoLP2 = new RegistroTempoOnline("LP2", 30);
         tempoLP2.adicionaTempoOnline(10);
@@ -49,9 +39,6 @@ public class Coisa {
         System.out.println(tempoP2.toString());
     }
 
-    /**
-     * Cadastro de horas e notas de uma disciplina e verifica a situação do aluno.
-     */
     private static void controlarDisciplina() {
         controlarDisciplina prog2 = new controlarDisciplina("PROGRAMACAO 2");
         prog2.cadastraHoras(4);
@@ -64,9 +51,6 @@ public class Coisa {
         System.out.println(prog2.toString());
     }
 
-    /**
-     * Testa o cadastro, consulta e busca de resumos de estudo.
-     */
     private static void registrarResumos() {
         RegistroResumos meusResumos = new RegistroResumos(100);  // 100 resumos
 
@@ -89,8 +73,39 @@ public class Coisa {
         System.out.println(meusResumos.temResumo("Objetos"));
     }
     private static void novasFuncoes() {
-        RegistroResumos resumoTeste = new RegistroResumos(3);
-        resumoTeste.busca("FMCC2");
+        RegistroResumos meusResumos = new RegistroResumos(1);  // 100 resumos
+
+        meusResumos.adiciona("d", "Classes definem um tipo e a base de código para criação de objetos.");
+        meusResumos.adiciona("a", "Identifica a semântica (operações e significados) de um conjunto de dados.");
+        meusResumos.adiciona("c", "Classes definem um tipo e a base de código para criação de objetos.");
+        meusResumos.adiciona("z", "Classes definem um tipo e a base de código para criação de objetos.");
+
+        String[] resumos = meusResumos.pegaResumos();
+
+
+        for (int i = 0; i < meusResumos.conta(); i++) {
+            System.out.println(resumos[i]);
+        }
+
+
+        System.out.println();
+        System.out.println("Resumos: ");
+        System.out.println(meusResumos.imprimeResumos());
+        System.out.println(meusResumos.temResumo("um"));
+        System.out.println(meusResumos.temResumo("Objetos"));
+        meusResumos.busca("");
+
+        System.out.println("----------------------------------------");
+        controlarDisciplina prog2 = new controlarDisciplina("PROGRAMACAO 2", 2, new double[]{2});
+        prog2.cadastraHoras(10);
+        prog2.cadastraNota(1, 5.0);
+        prog2.cadastraNota(1, 6.0);
+        prog2.cadastraNota(1, 7.0);
+        System.out.println(prog2.aprovado());
+        prog2.cadastraNota(1, 10.0);
+        System.out.println(prog2.aprovado());
+        prog2.cadastraHoras(6);
+        System.out.println(prog2.toString());
 
     }
 }

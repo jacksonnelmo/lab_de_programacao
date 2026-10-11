@@ -10,8 +10,8 @@ public class Resumo {
     /**
      * Cria um resumo com o tema e o conteúdo informados.
      *
-     * @param tema tema do resumo
-     * @param conteudo conteúdo do resumo
+     * @param tema tema do resumo.
+     * @param conteudo conteúdo do resumo.
      */
     public Resumo (String tema, String conteudo) {
     this.tema = tema;
@@ -21,7 +21,7 @@ public class Resumo {
     /**
      * Retorna uma representação textual do resumo.
      *
-     * @return tema e conteúdo do resumo
+     * @return tema e conteúdo do resumo.
      */
     @Override
     public String toString() {
@@ -31,11 +31,16 @@ public class Resumo {
     /**
      * Retorna o tema do resumo.
      *
-     * @return tema do resumo
+     * @return tema do resumo.
      */
     public String getTema() {
         return tema;
     }
 
+    /**
+     * Retorna o conteudo do resumo.
+     *
+     * @return conteudo do resumo.
+     */
     public String getConteudo() {return conteudo;}
 }

@@ -11,7 +11,7 @@ public class Descanso {
     /**
      * Cria um registro de descanso com os valores iniciais.
      *
-     * @param horasDeDescanso horas de descanso
+     * @param horasDeDescanso horas de descanso.
      */
     public void defineHorasDescanso(int horasDeDescanso) {
         this.horasDeDescanso = horasDeDescanso;
@@ -20,7 +20,7 @@ public class Descanso {
     /**
      * Define a quantidade de semanas consideradas.
      *
-     * @param numeroDeSemanas numero de semanas
+     * @param numeroDeSemanas numero de semanas.
      */
     public void defineNumeroSemanas(int numeroDeSemanas) {
         this.numeroDeSemanas = numeroDeSemanas;
@@ -29,8 +29,7 @@ public class Descanso {
     /**
      * Verifica se o estudante está suficientemente descansado.
      *
-     * @return true se estiver suficientemente descansado
-     * e false caso contrário
+     * @return true se estiver suficientemente descansado e false caso contrário.
      */
     public String getStatusGeral() {
         numeroDeSemanas = (numeroDeSemanas == 0) ? 1 : numeroDeSemanas;

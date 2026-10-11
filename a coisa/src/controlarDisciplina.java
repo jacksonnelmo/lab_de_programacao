@@ -8,7 +8,8 @@ public class controlarDisciplina {
     private final String nomeDisciplina;
     private int horasDeEstudo;
     private final double[] arrayNotas;
-    private double media;
+    private final int numeroDeNotas;
+    private final double[] arrayPeso;
 
     /**
      * Cria uma disciplina com o nome informado.
@@ -17,7 +18,36 @@ public class controlarDisciplina {
      */
     public controlarDisciplina(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
-        arrayNotas = new double[4];
+        numeroDeNotas = 4;
+        arrayNotas = new double[numeroDeNotas];
+        arrayPeso = new double[]{1};
+    }
+
+    /**
+     * Cria uma disciplina com o nome e o número de notas informados.
+     *
+     * @param nomeDisciplina nome da disciplina.
+     * @param numeroDeNotas número de notas da diciplina.
+     */
+    public controlarDisciplina(String nomeDisciplina, int numeroDeNotas) {
+        this.nomeDisciplina = nomeDisciplina;
+        this.numeroDeNotas = numeroDeNotas;
+        arrayNotas = new double[numeroDeNotas];
+        arrayPeso = new double[]{1};
+    }
+
+    /**
+     * Cria uma disciplina com o nome da disciplina, o número de notas da disciplina e os respectivos pesos das notas.
+     *
+     * @param nomeDisciplina nome da disciplina.
+     * @param numeroDeNotas número de notas da disciplina.
+     * @param arrayPeso ordem e pesos das notas.
+     */
+    public controlarDisciplina(String nomeDisciplina, int numeroDeNotas, double[] arrayPeso) {
+        this.nomeDisciplina = nomeDisciplina;
+        this.numeroDeNotas = numeroDeNotas;
+        arrayNotas = new double[numeroDeNotas];
+        this.arrayPeso = arrayPeso;
     }
 
     /**
@@ -32,26 +62,20 @@ public class controlarDisciplina {
     /**
      * Cadastra uma nota para disciplina.
      *
-     * @param notas     notas obtidas nas avaliações
+     * @param nota      nota obtida na determinada avaliação.
      * @param valorNota valor da nota
      */
-    public void cadastraNota(int notas, double valorNota) {
-        arrayNotas[notas - 1] = valorNota;
+    public void cadastraNota(int nota, double valorNota) {
+        arrayNotas[nota - 1] = valorNota;
     }
 
     /**
      * Verifica se o estudante foi aprovado na disciplina.
-     * If ṕode ser simplificado.
      *
      * @return true se o estudante foi aprovado e false se não for aprovado
      */
     public boolean aprovado() {
-        media = 0;
-        for (double nota : arrayNotas) {
-            media += nota;
-        }
-        media = media / 4;
-
+        double media = media(this.arrayNotas, this.arrayPeso, this.numeroDeNotas);
         return media >= 7.0;
     }
 
@@ -60,14 +84,38 @@ public class controlarDisciplina {
      *
      * @return representação textual da disciplina
      */
-
     @Override
     public String toString() {
-        media = 0;
-        for (double nota : arrayNotas) {
-            media += nota;
-        }
-        media = media / 4;
+        double media = media(this.arrayNotas, this.arrayPeso, this.numeroDeNotas);
         return nomeDisciplina + " " + horasDeEstudo + " " + media + " " + Arrays.toString(arrayNotas);
+    }
+
+    /**
+     * Calcula a média das notas.
+     *
+     * @param arrayNotas um array de notas.
+     * @param arrayPeso um array de pesos.
+     * @param numeroDeNotas quantidade de notas cadastradas.
+     * @return media das notas.
+     */
+    public double media(double[] arrayNotas, double[] arrayPeso, int numeroDeNotas) {
+        double media = 0;
+        if (Arrays.equals(arrayPeso, new double[]{1})) {
+            media = 0;
+            for (double nota : arrayNotas) {
+                media += nota;
+            }
+            media = media / numeroDeNotas;
+        } else {
+            if (arrayNotas.length == arrayPeso.length) {
+            double somadorDePesos = 0;
+            media = 0;
+            for (int i = 0; i < numeroDeNotas; i++) {
+                media += arrayNotas[i] * arrayPeso[i];
+                somadorDePesos += arrayPeso[i];
+            }
+            media = media / somadorDePesos;
+        }}
+        return media;
     }
 }

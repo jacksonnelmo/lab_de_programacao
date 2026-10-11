@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Locale;
 
 /**
@@ -7,7 +8,9 @@ import java.util.Locale;
  */
 public class RegistroResumos {
     private final Resumo[] resumos;
-    private int cont;
+    private final int quantidadeMaximaDeResumos;
+    private int contadorDeResumos;
+    private int contadorDeResumosSobrescrevidos;
 
     /**
      * Cria um registro de resumos.
@@ -15,18 +18,33 @@ public class RegistroResumos {
      * @param quantidade número de resumos que seram guardados
      */
     public RegistroResumos(int quantidade) {
-        resumos = new Resumo[quantidade];
+        quantidadeMaximaDeResumos = quantidade;
+        resumos = new Resumo[quantidadeMaximaDeResumos];
     }
 
     /**
      * Cadastra um novo resumo de estudo.
+     * Se a quantidade máxima de resumos for atingida essa classe irá sobrescrever os resumos mais antigos.
      *
      * @param tema   título do resumo
      * @param resumo conteúdo do resumo
      */
     public void adiciona(String tema, String resumo) {
-        resumos[cont] = new Resumo(tema, resumo);
-        cont++;
+        if (!temResumo(tema)) {
+            if (contadorDeResumos < quantidadeMaximaDeResumos) {
+                resumos[contadorDeResumos] = new Resumo(tema, resumo);
+                contadorDeResumos++;
+            } else {
+                if (contadorDeResumosSobrescrevidos < quantidadeMaximaDeResumos) {
+                    contadorDeResumos = quantidadeMaximaDeResumos;
+                    resumos[contadorDeResumosSobrescrevidos] = new Resumo(tema, resumo);
+                    contadorDeResumosSobrescrevidos++;
+                } else {
+                    contadorDeResumosSobrescrevidos = 0;
+                    resumos[contadorDeResumosSobrescrevidos] = new Resumo(tema, resumo);
+                }
+            }
+        }
     }
 
     /**
@@ -35,8 +53,8 @@ public class RegistroResumos {
      * @return resumos cadastrados
      */
     public String[] pegaResumos() {
-        String[] resultado = new String[cont];
-        for (int i = 0; i < cont; i++) {
+        String[] resultado = new String[contadorDeResumos];
+        for (int i = 0; i < contadorDeResumos; i++) {
             resultado[i] = resumos[i].toString();
         }
         return resultado;
@@ -48,16 +66,16 @@ public class RegistroResumos {
      * @return resumos de estudo cadastrados.
      */
     public String imprimeResumos() {
-        String concatenacao = "- " + cont + " resumo(s) cadastrado(s)\n";
-        concatenacao += "- ";
+        StringBuilder concatenacao = new StringBuilder("- " + contadorDeResumos + " resumo(s) cadastrado(s)\n");
+        concatenacao.append("- ");
 
-        for (int i = 0; i < cont; i++) {
+        for (int i = 0; i < contadorDeResumos; i++) {
             if (i > 0) {
-                concatenacao += " | ";
+                concatenacao.append(" | ");
             }
-            concatenacao += resumos[i].getTema();
+            concatenacao.append(resumos[i].getTema());
         }
-        return concatenacao;
+        return concatenacao.toString();
     }
 
     /**
@@ -66,30 +84,45 @@ public class RegistroResumos {
      * @return quantidade de resumos
      */
     public int conta() {
-        return cont;
+        return contadorDeResumos;
     }
 
     /**
      * Verifica se existe um resumo cadastrado com o nome informado.
      *
-     * @param tema nome do resumo a ser procurado
+     * @param tema tema do resumo a ser procurado
      * @return true se o resumo estiver cadastrado ou false caso contrário
      */
     public boolean temResumo(String tema) {
-        for (int i = 0; i < cont; i++) {
-            return resumos[i].getTema().equals(tema);
+        for (int i = 0; i < contadorDeResumos; i++) {
+            if (resumos[i].getTema().equals(tema)) return true;
         }
         return false;
     }
 
+    /**
+     * busca os temas dos resumos que possuem a chave de busca em seus conteúdos.
+     *
+     * @param chaveDeBusca palavra a ser procurada nos conteúdos dos resumos.
+     */
     public void busca(String chaveDeBusca) {
-        String chaveDeBuscaMinuscula = chaveDeBusca.toLowerCase(Locale.ROOT);
-        String[] listaDeBusca;
-        for (int i = 0; i < cont; i++) {
-            String conteudoMinusculo = resumos[i].getConteudo().toLowerCase(Locale.ROOT);
-            if (chaveDeBuscaMinuscula.equals(conteudoMinusculo)) {
-
+        int contadorDaBusca = 0;
+        for (int i = 0; i < contadorDeResumos; i++) {
+            String conteudo = resumos[i].getConteudo();
+            if (conteudo.toLowerCase(Locale.ROOT).contains(chaveDeBusca.toLowerCase(Locale.ROOT))) {
+                contadorDaBusca++;
             }
         }
+        String[] arrayBusca = new String[contadorDaBusca];
+        for (int i = 0; i < contadorDeResumos; i++) {
+            String conteudo = resumos[i].getConteudo();
+            if (conteudo.toLowerCase(Locale.ROOT).contains(chaveDeBusca.toLowerCase(Locale.ROOT))) {
+                arrayBusca[contadorDaBusca-1] = resumos[i].getTema();
+                contadorDaBusca -= 1;
+            }
+        }
+        Arrays.sort(arrayBusca);
+        System.out.println(Arrays.toString(arrayBusca));
     }
 }
+

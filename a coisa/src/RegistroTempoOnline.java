@@ -4,22 +4,23 @@
  * @author Jackson Nelmo Bernardino de Sousa - 20260004340
  */
 public class RegistroTempoOnline {
-    private String nomeDaDisciplina;
+    private final String nomeDaDisciplina;
     private int tempoInvestidoOnline;
-    private int tempoOnlineEsperado = 120;
+    private final int tempoOnlineEsperado;
 
     /**
      * Cria um registro de tempo online para a disciplina informada.
-     * @param nomeDisciplina nome da disciplina
+     * @param nomeDisciplina nome da disciplina.
      */
     public RegistroTempoOnline(String nomeDisciplina) {
+        this.tempoOnlineEsperado = 120;
         this.nomeDaDisciplina = nomeDisciplina;
     }
 
     /**
      * Cria um registro de tempo online para a disciplina informada.
-     * @param nomeDisciplina nome da disciplina
-     * @param tempoOnlineEsperado tempo esperado online
+     * @param nomeDisciplina nome da disciplina.
+     * @param tempoOnlineEsperado tempo esperado online.
      */
     public RegistroTempoOnline(String nomeDisciplina, int tempoOnlineEsperado) {
         this.nomeDaDisciplina = nomeDisciplina;
@@ -28,7 +29,7 @@ public class RegistroTempoOnline {
 
     /**
      * Adiciona uma quantidade de tempo ao registro de estudo.
-     * @param tempoInvestidoOnline quantidade de tempo a ser adicionada
+     * @param tempoInvestidoOnline quantidade de tempo a ser adicionada.
      */
     public void adicionaTempoOnline(int tempoInvestidoOnline) {
         this.tempoInvestidoOnline +=  tempoInvestidoOnline;
@@ -37,7 +38,7 @@ public class RegistroTempoOnline {
     /**
      * Verifica se a meta de tempo online foi atingida.
      *
-     * @returntrue se a meta foi atingida e false caso contrário
+     * @return true se a meta foi atingida e false caso contrário.
      */
     public boolean atingiuMetaTempoOnline() {
         return tempoInvestidoOnline >= tempoOnlineEsperado;
@@ -46,7 +47,7 @@ public class RegistroTempoOnline {
     /**
      * Retorna uma representação textual do registro de tempo online.
      *
-     * @return representação textual do registro
+     * @return representação textual do registro.
      */
     @Override
     public String toString() {
