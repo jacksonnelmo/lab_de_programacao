@@ -7,8 +7,6 @@ public class Coisa {
         controlarDisciplina();
         System.out.println("-----");
         registrarResumos();
-        System.out.println("-----");
-        novasFuncoes();
     }
 
     public static void registrarDescanso() {
@@ -71,41 +69,5 @@ public class Coisa {
         System.out.println(meusResumos.imprimeResumos());
         System.out.println(meusResumos.temResumo("Classes"));
         System.out.println(meusResumos.temResumo("Objetos"));
-    }
-    private static void novasFuncoes() {
-        RegistroResumos meusResumos = new RegistroResumos(1);  // 100 resumos
-
-        meusResumos.adiciona("d", "Classes definem um tipo e a base de código para criação de objetos.");
-        meusResumos.adiciona("a", "Identifica a semântica (operações e significados) de um conjunto de dados.");
-        meusResumos.adiciona("c", "Classes definem um tipo e a base de código para criação de objetos.");
-        meusResumos.adiciona("z", "Classes definem um tipo e a base de código para criação de objetos.");
-
-        String[] resumos = meusResumos.pegaResumos();
-
-
-        for (int i = 0; i < meusResumos.conta(); i++) {
-            System.out.println(resumos[i]);
-        }
-
-
-        System.out.println();
-        System.out.println("Resumos: ");
-        System.out.println(meusResumos.imprimeResumos());
-        System.out.println(meusResumos.temResumo("um"));
-        System.out.println(meusResumos.temResumo("Objetos"));
-        meusResumos.busca("");
-
-        System.out.println("----------------------------------------");
-        controlarDisciplina prog2 = new controlarDisciplina("PROGRAMACAO 2", 2, new double[]{2});
-        prog2.cadastraHoras(10);
-        prog2.cadastraNota(1, 5.0);
-        prog2.cadastraNota(1, 6.0);
-        prog2.cadastraNota(1, 7.0);
-        System.out.println(prog2.aprovado());
-        prog2.cadastraNota(1, 10.0);
-        System.out.println(prog2.aprovado());
-        prog2.cadastraHoras(6);
-        System.out.println(prog2.toString());
-
     }
 }
